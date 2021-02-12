@@ -15,8 +15,10 @@ module.exports = {
   },
   devServer: {
     overlay: true,
-    stats: "errors-only"
-    // TODO: 여기에 api 서버 프록싱 설정을 추가하세요
+    stats: "errors-only",
+    proxy: {
+      "/api": "http://localhost:8081", // 프록시 (/api로 시작하면 http://localhost:8081 로 시작하게끔 변경)
+    },
   },
   module: {
     rules: [
