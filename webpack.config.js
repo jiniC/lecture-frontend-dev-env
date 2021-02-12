@@ -19,15 +19,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(scss|css)$/,
         use: [
-          /**
-           * TODO: SASS 코드를 사용할수 있겠끔 sass-loader를 구성하세요.
-           */
+          // npm install sass-loader node-sass (webpack 이랑 버전 안맞아서 오류남)
           process.env.NODE_ENV === "production"
             ? MiniCssExtractPlugin.loader // 프로덕션 환경
             : "style-loader", // 개발 환경
-          "css-loader"
+          "css-loader",
+          "sass-loader"
         ]
       },
       {
