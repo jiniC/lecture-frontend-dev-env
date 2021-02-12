@@ -34,10 +34,13 @@ module.exports = {
           name: "[name].[ext]?[hash]",
           limit: 10000 // 10Kb
         }
-      }
-      /**
-       * TODO: babel-loader를 구성해 보세요.
-       */
+      },
+      // npm i babel-loader @babel/core @babel/preset-env core-js@2
+      {
+        test: /\.js$/,
+        use: ['babel-loader'], // babel-loader는 babel.config.js 를 참고해서 내부적으로 babel-core 를 실행함
+        exclude: /node_modules/, // node_modules 는 바벨 로더 실행 제외
+      },
     ]
   },
   plugins: [
